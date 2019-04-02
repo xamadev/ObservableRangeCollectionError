@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C4S.MobileApp.Views.PortfolioElementePage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <!--<ListView
+          
+                ItemsSource="{Binding PortfolioElemente}"           
+            >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Bezeichnung}"
+                                   TextColor="Black"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                            />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+            <CollectionView
+                x:Name="PortfolioElementeCollectionView"  
+                ItemsSource="{Binding PortfolioElemente}"           
+                >
+                <CollectionView.ItemsLayout >
+                    <GridItemsLayout Orientation="Vertical" Span="2" ></GridItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            <Frame BackgroundColor="Transparent" Padding="10" HasShadow="False" BorderColor="Gray" >
+                                <Label Text="{Binding Bezeichnung}"
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                />
+                            </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
